@@ -1,20 +1,25 @@
+/* sets the box-sizing property to border-box for all elements */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
-
+/* All elements are set to use the "Montserrat" font family (sans-serif fallback)*/
 * {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
 }
 
-
+/*When text is selected (highlighted), its background color will be a shade of red */
 *::selection{
    background: #ffbf4741;
 }
 
-/* Custom Properties, update these for your own design */
+/*This defines a set of custom CSS variables for fonts, font weights, colors, font sizes, and box shadows. These variables are used throughout the stylesheet for easy management and consistency.
+
+--clr-light and --clr-dark are colors for light and dark text.
+--clr-accent is the accent color used in buttons and hover states.
+Font sizes for different headings (--fs-h1, --fs-h2, etc.) are also defined.*/
 
 :root {
     --ff-primary: 'Lora', serif;
@@ -35,7 +40,7 @@
     --bs: 0.25em 0.25em 0.75em rgba(0, 0, 0, .25),
         0.125em 0.125em 0.25em rgba(0, 0, 0, .15);
 }
-
+/*This media query adjusts font sizes for larger screens (above 800px).*/
 @media (min-width: 800px) {
     :root {
         --fs-h1: 4.5rem;
@@ -48,10 +53,9 @@
 /* General styles */
 
 /* endable this to add smooth scrolling */
-/* html {
-    scroll-behavior: smooth;
-} */
-
+/*The body background is set to --clr-light (white), and the text color is --clr-dark (dark gray).
+The font family and base font size are applied from the :root variables.
+Line height is set to 1.6 for better readability.*/
 
 body {
     background: var(--clr-light);
@@ -61,11 +65,11 @@ body {
     font-size: var(--fs-body);
     line-height: 1.6;
 }
-
+/*All sections have padding of 5em vertically and 2em horizontally.*/
 section {
     padding: 5em 2em;
 }
-
+/*Images are displayed as block elements, and their width is limited to 100% of the container's width, ensuring responsiveness.*/
 img {
     display: block;
     max-width: 100%;
@@ -101,6 +105,8 @@ strong {
 }
 
 /* Typography */
+/*Headings (h1, h2, h3) have no margin and a line height of 1 for tighter vertical spacing.
+The font sizes for these elements are dynamically set based on the custom properties.*/
 
 h1,
 h2,
@@ -154,6 +160,7 @@ h3 {
 }
 
 /* header */
+/*The header is styled as a sticky navigation bar at the top with display: flex for layout. The background is light gray */
 
 header {
     display: flex;
@@ -169,7 +176,7 @@ header {
 .logo {
     max-width: 100px;
 }
-
+/*The .nav (sidebar navigation) is fixed and spans the entire viewport. Initially, it is hidden (transform: translateX(100%)).*/
 .nav {
     position: fixed;
     background: var(--clr-dark);
@@ -329,6 +336,7 @@ header {
 
 
 /*  Intro section  */
+/*The intro section is styled with a shadow on the image*/
 
 .intro {
     position: relative;
@@ -341,7 +349,7 @@ header {
 .section__subtitle--intro {
     display: inline-block;
 }
-
+/*On screens wider than 600px, the intro section is displayed as a grid with the image on the left and text on the right.*/
 @media (min-width: 600px) {
     .intro {
         display: grid;
